@@ -7,7 +7,7 @@ class ApiService{
                 'Content-Type': 'application/json; charset=UTF-8'
             },
             body: JSON.stringify(data)
-        }).then((res) => res.json())
+        }).then((res) => res.json()).catch((e) => alert(`error message: ${e}`));
     }
     edit(data, updId){
         const id = updId;
@@ -17,15 +17,15 @@ class ApiService{
             headers:{
                 'Content-type': 'application/json; charset=UTF-8',
               },
-        }).then((res) => res.json())
+        }).then((res) => res.json()).catch((e) => alert(`error message: ${e}`));
     }
     getName(id){
-        return fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => res.json()).then((json) => json.username);
+        return fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => res.json()).then((json) => json.username).catch((e) => alert(`error message: ${e}`));
     }
     remove(id){
         return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
             method:'DELETE',
-        });
+        }).catch((e) => alert(`error message: ${e}`));
     }
 }
 
